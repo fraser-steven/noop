@@ -239,10 +239,10 @@ struct NOOPChargeView: View {
     /// The circular family's curved widgetLabel. Appends the freshness once a snapshot starts aging so
     /// the number above it is never read as live; stays "Charge" while it is fresh.
     private var circularLabel: String {
-        guard let fresh = freshness else { return String(localized: "Charge") }
+        guard let fresh = freshness else { return String(localized: "Recovery") }
         if isStale { return String(localized: "Charge · \(fresh)") }
         // A current snapshot's label adds no information next to a live-looking ring, so keep it clean.
-        if isFreshToday { return String(localized: "Charge") }
+        if isFreshToday { return String(localized: "Recovery") }
         return String(localized: "Charge · \(fresh)")
     }
 
@@ -266,7 +266,7 @@ struct NOOPChargeView: View {
         case .value:
             // Real number: ride the bezel with the recency so an aging score stays honest. A current
             // snapshot keeps the plain label (semantic flag, not a display-text comparison).
-            guard let fresh = freshness, !isFreshToday else { return String(localized: "Charge") }
+            guard let fresh = freshness, !isFreshToday else { return String(localized: "Recovery") }
             return String(localized: "Charge · \(fresh)")
         case .calibrating:
             // When the dash is here because the whole snapshot went stale, say so plainly rather than
@@ -277,7 +277,7 @@ struct NOOPChargeView: View {
             }
             return String(localized: "Charge · cal")
         case .missing:
-            return noSnapshot ? String(localized: "Open NOOP") : String(localized: "Charge")
+            return noSnapshot ? String(localized: "Open NOOP") : String(localized: "Recovery")
         }
     }
 
@@ -331,8 +331,8 @@ struct NOOPChargeView: View {
             }
             // The three scores, equal-width.
             HStack(alignment: .top, spacing: 0) {
-                scoreCell(String(localized: "Charge"), readout: charge, tint: chargeTint)
-                scoreCell(String(localized: "Effort"), readout: effort, tint: effortTint)
+                scoreCell(String(localized: "Recovery"), readout: charge, tint: chargeTint)
+                scoreCell(String(localized: "Day Strain"), readout: effort, tint: effortTint)
                 scoreCell(String(localized: "Rest"), readout: rest, tint: restTint)
             }
         }
@@ -432,8 +432,8 @@ struct NOOPChargeView: View {
             case .missing:       return String(localized: "\(label) unavailable")
             }
         }
-        let chargePhrase = phrase(String(localized: "Charge"), charge)
-        let effortPhrase = phrase(String(localized: "Effort"), effort)
+        let chargePhrase = phrase(String(localized: "Recovery"), charge)
+        let effortPhrase = phrase(String(localized: "Day Strain"), effort)
         let restPhrase = phrase(String(localized: "Rest"), rest)
         return String(localized: "NOOP. \(chargePhrase), \(effortPhrase), \(restPhrase).")
     }

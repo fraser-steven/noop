@@ -152,7 +152,7 @@ struct LiftSessionDetailSheet: View {
                      sessionLoadText,
                      sessionLoadCaption)
 
-                tile(String(localized: "Effort"),
+                tile(String(localized: "Strain"),
                      workout?.strain.map { LiftFormat.trim($0) } ?? "—",
                      String(localized: "measured from heart rate"))
             }

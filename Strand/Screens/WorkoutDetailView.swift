@@ -537,7 +537,7 @@ struct WorkoutDetailView: View {
         let scaleMax: Double = effortScale == .whoop ? 21 : 100
         let fraction = max(0, min(1, displayValue / scaleMax))
         return VStack(alignment: .leading, spacing: NoopMetrics.gap) {
-            SectionHeader("Effort", overline: "This session")
+            SectionHeader("Strain", overline: "This session")
             NoopCard(tint: StrandPalette.effortColor) {
                 HStack(alignment: .center, spacing: 18) {
                     ZStack {

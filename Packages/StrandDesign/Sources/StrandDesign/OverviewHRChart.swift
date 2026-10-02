@@ -313,7 +313,7 @@ public struct OverviewHRChart: View {
                 .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
         }
         if let effort {
-            RuleMark(x: .value("Effort", clampX(effort.date)))
+            RuleMark(x: .value("Day Strain", clampX(effort.date)))
                 .foregroundStyle(effort.color.opacity(0.85))
                 .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
         }

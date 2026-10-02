@@ -496,7 +496,7 @@ final class InsightsHubViewModel: ObservableObject {
         var id: String { rawValue }
         var label: String {
             switch self {
-            case .recovery: return String(localized: "Charge")
+            case .recovery: return String(localized: "Recovery")
             case .hrv:      return "HRV"
             case .sleep:    return String(localized: "Rest")
             case .rhr:      return "RHR"
@@ -514,7 +514,7 @@ final class InsightsHubViewModel: ObservableObject {
         /// The engine's outcome label (carried onto each RankedEffect).
         var outcomeName: String {
             switch self {
-            case .recovery: return String(localized: "Charge")
+            case .recovery: return String(localized: "Recovery")
             case .hrv:      return "HRV"
             case .sleep:    return String(localized: "Rest")
             case .rhr:      return String(localized: "Resting HR")
@@ -650,7 +650,7 @@ final class InsightsHubViewModel: ObservableObject {
     /// The metricSeries key a DoseResponsePriors outcome NAME maps to ("Charge"→recovery, "HRV"→hrv).
     static func outcomeKey(forEngineName name: String) -> String {
         switch name {
-        case "Charge": return "recovery"
+        case "Recovery": return "recovery"
         case "HRV":    return "hrv"
         case "Rest":   return "sleep_performance"
         case "Resting HR": return "rhr"

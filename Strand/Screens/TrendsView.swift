@@ -449,7 +449,7 @@ struct TrendsView: View {
                 VStack(alignment: .leading, spacing: NoopMetrics.cardInnerSpacing) {
                     SectionHeader("Week in review", overline: "Charge · Effort · Rest")
                     if let v = chargeAvg {
-                        pipScoreRow(label: "Charge", value: v, range: 0...100,
+                        pipScoreRow(label: "Recovery", value: v, range: 0...100,
                                     tint: StrandPalette.chargeColor, frac: v / 100,
                                     format: { "\(Int($0.rounded()))" })
                     }
@@ -464,7 +464,7 @@ struct TrendsView: View {
                         let oneDecimal = effortScale == .whoop
                         // The vessel fills off the stored 0–100 internal scale (v), so it agrees with the
                         // Charge/Rest vessels regardless of the displayed Effort unit.
-                        pipScoreRow(label: "Effort", value: display, range: 0...maxV,
+                        pipScoreRow(label: "Day Strain", value: display, range: 0...maxV,
                                     tint: StrandPalette.effortColor, frac: v / 100,
                                     format: { oneDecimal ? String(format: "%.1f", $0) : "\(Int($0.rounded()))" })
                     }
@@ -573,7 +573,7 @@ struct TrendsView: View {
         // Charge world — the WHOOP recovery value scale (red→yellow→green) drawn as a crisp flat line
         // with a bright "now" cap. No glow.
         let card = ChartCard(
-            title: "Charge",
+            title: "Recovery",
             // The range bar above already prints the authoritative reading-count caption;
             // the hero only names its window so the count isn't doubled in one card height.
             subtitle: rangeSubtitle,
@@ -657,8 +657,8 @@ struct TrendsView: View {
                 metricChart(
                     // Plotted points + range stay on the stored 0–100 scale (line shape unchanged); only the
                     // displayed numbers + unit follow the Effort-scale toggle, converted inside `fmt`. (#268)
-                    title: "Effort", unit: "/ \(UnitFormatter.effortScaleMax(effortScale))",
-                    accessibilityTitle: String(localized: "Effort"),
+                    title: "Day Strain", unit: "/ \(UnitFormatter.effortScaleMax(effortScale))",
+                    accessibilityTitle: String(localized: "Day Strain"),
                     metricKey: "strain",
                     points: strainPts,
                     // WHOOP: Effort/Strain is always BLUE — a deep→bright blue line, not the amber ramp.

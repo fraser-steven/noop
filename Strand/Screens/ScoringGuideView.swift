@@ -61,8 +61,8 @@ enum ScoreSection: String, CaseIterable, Identifiable {
     /// Localized display name for the section (the raw value stays the stable anchor id).
     var displayName: String {
         switch self {
-        case .charge: return String(localized: "Charge")
-        case .effort: return String(localized: "Effort")
+        case .charge: return String(localized: "Recovery")
+        case .effort: return String(localized: "Day Strain")
         case .rest:   return String(localized: "Rest")
         }
     }
@@ -178,8 +178,8 @@ struct ScoringGuideView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 // The three accents as a quick legend, echoing the section colours below.
                 HStack(spacing: 16) {
-                    legendDot(.charge, String(localized: "Charge"))
-                    legendDot(.effort, String(localized: "Effort"))
+                    legendDot(.charge, String(localized: "Recovery"))
+                    legendDot(.effort, String(localized: "Day Strain"))
                     legendDot(.rest, String(localized: "Rest"))
                 }
                 .padding(.top, 2)

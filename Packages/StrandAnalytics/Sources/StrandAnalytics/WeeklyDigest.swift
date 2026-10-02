@@ -41,8 +41,8 @@ public enum WeeklyMetric: String, CaseIterable, Sendable {
     /// Human label for the metric (matches the rest of the app's naming).
     public var label: String {
         switch self {
-        case .charge: return "Charge"
-        case .effort: return "Effort"
+        case .charge: return "Recovery"
+        case .effort: return "Day Strain"
         case .rest:   return "Rest"
         case .rhr:    return "Resting HR"
         case .hrv:    return "HRV"

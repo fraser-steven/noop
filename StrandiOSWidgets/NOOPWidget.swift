@@ -113,9 +113,9 @@ struct NOOPWidgetView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
             HStack(alignment: .top, spacing: 0) {
-                accessoryScore("Charge", symbol: "figure.mind.and.body",
+                accessoryScore("Recovery", symbol: "figure.mind.and.body",
                                text: snap.recovery.map { "\($0)%" }, tint: chargeColor)
-                accessoryScore("Effort", symbol: "figure.strengthtraining.traditional",
+                accessoryScore("Day Strain", symbol: "figure.strengthtraining.traditional",
                                text: effortText, tint: effortColor)
                 accessoryScore("Rest", symbol: "moon.fill",
                                text: snap.rest.map { "\($0)%" }, tint: restColor)
@@ -249,7 +249,7 @@ struct NOOPWidgetView: View {
             WidgetScoreRing(
                 text: snap.recovery.map(String.init),
                 fraction: snap.recovery.map { Double($0) / 100 },
-                label: "Charge",
+                label: "Recovery",
                 color: chargeColor,
                 diameter: diameter,
                 lineWidth: lineWidth,
@@ -260,7 +260,7 @@ struct NOOPWidgetView: View {
                 text: effortText,
                 // Fill is always the stored 0–100 axis so WHOOP 0–21 and native 0–100 agree on arc length.
                 fraction: snap.effort.map { Double($0) / 100 },
-                label: "Effort",
+                label: "Day Strain",
                 color: effortColor,
                 diameter: diameter,
                 lineWidth: lineWidth,

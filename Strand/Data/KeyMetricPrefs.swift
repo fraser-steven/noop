@@ -37,8 +37,8 @@ enum KeyMetric: String, CaseIterable, Identifiable {
     /// The tile's display label — matches the `StatTile(label:)` text rendered on the grid.
     var title: String {
         switch self {
-        case .charge:      return String(localized: "Charge")
-        case .effort:      return String(localized: "Effort")
+        case .charge:      return String(localized: "Recovery")
+        case .effort:      return String(localized: "Day Strain")
         case .rest:        return String(localized: "Rest")
         case .hrv:         return "HRV"
         case .restingHr:   return String(localized: "Resting HR")

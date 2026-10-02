@@ -212,7 +212,7 @@ struct LiveWorkoutView: View {
             ? String(format: "%.1f", displayEffort)
             : "\(Int(displayEffort.rounded()))"
         let scaleCaption = String(localized: "of \(UnitFormatter.effortScaleMax(effortScale))")
-        let effortAccessibilityLabel = "\(String(localized: "Effort")) \(valueText) \(scaleCaption)"
+        let effortAccessibilityLabel = "\(String(localized: "Strain")) \(valueText) \(scaleCaption)"
         return VStack(spacing: NoopMetrics.space1) {
             CountUpText(value: displayEffort,
                         format: { value in
